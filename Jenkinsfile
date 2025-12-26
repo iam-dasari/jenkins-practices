@@ -52,6 +52,19 @@ pipeline {
                 echo "Deploying to PROD"
             }
         }
+        parallel {
+            stage('Branch A') {
+                echo "Branch A"
+            }
+            stage('Branch B') {
+                echo "Branch B"
+            }
+            stage('Branch C') {
+                echo "Branch C"
+            }
+
+        }
+        
         
     }
 
@@ -66,4 +79,4 @@ pipeline {
     }
 }
 
-//40 mins
+//37 mins
