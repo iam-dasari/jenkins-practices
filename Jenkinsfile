@@ -2,38 +2,42 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('Init') {
             steps {
-                echo "Building..."
-                sh "ls -lrt"
-                sh '''
-                pwd
-                '''
-                echo "Hello from webhook event"
+                sh 'terraform init'
             }
         }
-        stage('Test') {
+        stage('Plan') {
             steps {
-                echo "Testing..."
+                sh 'terraform plan'
             }
         }
-        stage('Deploy') {
+        stage('Approve') {
             steps {
-                echo "Deploying..."
-                //error "Failed"
+                input "Pls approve"
+            }
+        }
+        stage('Apply') {
+            steps {
+                sh 'terraform apply -auto-approve'
+            }
+        }
+        stage('verify') {
+            steps {
+                sh 'cat output.txt'
             }
         }
     }
 
     post {
+        stage('Destroy') {
+            steps {
+                sh 'terraform destroy -auto-approve'
+            }
+
+        }
         always {
-            echo "I will always run"
-        }
-        success {
-            echo "Success"
-        }
-        failure {
-            echo "Failure"
+            deleteDir()
         }
     }
 }
