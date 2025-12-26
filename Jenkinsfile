@@ -33,7 +33,8 @@ pipeline {
 
     post {
         success {
-            sh 'terraform destroy -auto-approve'
+            //sh 'terraform destroy -auto-approve'
+            echo "Success"
         }
 
         always {
