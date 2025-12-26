@@ -15,6 +15,14 @@ pipeline {
                 sh 'printenv'
             }
         }
+        stage('Validate Credentials') {
+            environment {
+                AUTH = credentials('ssh-auth')
+            }
+            steps {
+                sh 'printenv'
+            }
+        }
         
     }
 
