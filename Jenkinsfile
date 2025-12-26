@@ -53,15 +53,17 @@ pipeline {
             }
         }
         stage('Parallel stage') {
-                    parallel {
+            parallel {
+
             stage('Branch A') {
-                echo "Branch A"
+                steps {echo "Branch A"}
+                
             }
             stage('Branch B') {
-                echo "Branch B"
+                steps {echo "Branch B"}
             }
             stage('Branch C') {
-                echo "Branch C"
+                steps {echo "Branch C"}
             }
         }
 
