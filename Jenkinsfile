@@ -46,7 +46,7 @@ pipeline {
         }
         stage('PROD deploy') {
             when {
-                branch 'origin/master'
+                environment name: 'USER', value: 'Dasari'
             }
             steps {
                 echo "Deploying to PROD"
@@ -65,3 +65,5 @@ pipeline {
         }
     }
 }
+
+//40 mins
