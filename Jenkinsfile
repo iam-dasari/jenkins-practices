@@ -9,7 +9,7 @@ pipeline {
                 sh '''
                 pwd
                 '''
-                echo "Hello from webhook event updated"
+                echo "Hello from webhook event"
             }
         }
         stage('Test') {
