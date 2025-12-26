@@ -30,12 +30,10 @@ pipeline {
     }
 
     post {
-        stage('Destroy') {
-            steps {
-                sh 'terraform destroy -auto-approve'
-            }
-
+        success {
+            sh 'terraform destroy -auto-approve'
         }
+
         always {
             deleteDir()
         }
