@@ -52,7 +52,8 @@ pipeline {
                 echo "Deploying to PROD"
             }
         }
-        parallel {
+        stage('Parallel stage') {
+                    parallel {
             stage('Branch A') {
                 echo "Branch A"
             }
@@ -62,8 +63,10 @@ pipeline {
             stage('Branch C') {
                 echo "Branch C"
             }
+        }
 
         }
+
         
         
     }
