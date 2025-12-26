@@ -9,6 +9,10 @@ pipeline {
         USER = 'Dasari'
     }
 
+    /*triggers {
+        cron('* * * * *') //every minute build periodically
+    }*/
+
     parameters {
         string(name: 'PERSON', defaultValue: 'Dasari', description: 'PERSON NAME')
         text(name: 'BIOGRAPHY', defaultValue: 'Guntur', description: 'BIOGRAPHY NAME')
@@ -38,6 +42,14 @@ pipeline {
                 echo "${params.TOGGLE}"
                 echo "${params.CHOICE}"
                 echo "${params.PASSWORD}"
+            }
+        }
+        stage {'PROD deploy'} {
+            when {
+                branch 'master'
+            }
+            steps {
+                echo "Deploying to PROD"
             }
         }
         
