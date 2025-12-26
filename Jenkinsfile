@@ -25,6 +25,7 @@ pipeline {
         }
         stage('verify') {
             steps {
+                sh 'pwd'
                 sh 'cat output.txt'
             }
         }
