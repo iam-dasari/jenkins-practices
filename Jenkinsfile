@@ -5,6 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo "Building..."
+                ls -lrt
             }
         }
         stage('Test') {
@@ -15,7 +16,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo "Deploying..."
-                error "Failed"
+                //error "Failed"
             }
         }
     }
