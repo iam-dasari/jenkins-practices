@@ -5,7 +5,7 @@ pipeline {
         stage('Init') {
             steps {
                 sh 'ls -lrt'
-                sh 'terraform init'
+                sh 'terraform init --upgrade'
             }
         }
         stage('Plan') {
