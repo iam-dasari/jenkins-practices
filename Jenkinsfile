@@ -44,9 +44,9 @@ pipeline {
                 echo "${params.PASSWORD}"
             }
         }
-        stage {'PROD deploy'} {
+        stage('PROD deploy') {
             when {
-                branch 'master'
+                branch 'origin/master'
             }
             steps {
                 echo "Deploying to PROD"
