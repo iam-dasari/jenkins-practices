@@ -33,7 +33,7 @@ pipeline {
         }
         stage('access parameters') {
             steps {
-                echo "${params.PERSON}"
+                echo "Hello ${params.PERSON}"
                 echo "${params.BIOGRAPHY}"
                 echo "${params.TOGGLE}"
                 echo "${params.CHOICE}"
