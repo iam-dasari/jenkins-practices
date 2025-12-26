@@ -39,6 +39,7 @@ pipeline {
 
         always {
             //deleteDir()
+            echo "Run always"
         }
     }
 }
