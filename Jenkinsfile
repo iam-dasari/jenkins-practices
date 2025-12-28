@@ -1,4 +1,4 @@
-@Library('jenkins-shared-library')_
+@Library('jenkins-shared-library') _
 pipeline {
     agent any
 
@@ -11,6 +11,13 @@ pipeline {
             steps {
                 script {
                     javaEKS()
+                }
+            }
+        }
+        stage('Call user defined func') {
+            steps {
+                script {
+                    javaEKS.func1()
                 }
             }
         }
